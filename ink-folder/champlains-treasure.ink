@@ -1,3 +1,4 @@
+# title: In Search of Champlain's Treasure
 # theme: dark
 # author: Matt K
 You find a book, Oceanology, on your shelf you haven't seen before.
@@ -12,7 +13,7 @@ My father and his father before him… for more than ten generations we gathered
 
 Tucked into the the text is an SD Card.
 
-* [Load the SD card into your computer]
+* [Load the SD card into your computer] #CLEAR
 -The SD card contains two files: a folder that is locked and an audio file.
 
 * [Listen to the audio file]
@@ -24,8 +25,6 @@ Tucked into the the text is an SD Card.
 * [Use "Champlain" to unlock the folder on the SD card]
 - The folder has a text file and a HTML file. -> champlain_folder
 
-- It reveals the text "the second explorer fell to poison"
--> END
 
 === champlain_folder ===
 + [Open the HTML file]
@@ -43,7 +42,7 @@ You've proven yourself to be a worthy descendant. Look upon yourself and look de
     You've proven yourself to be a worthy descendant. Look upon yourself and look deeply.  What truly lies behind those eyes and unassuming smiles? Open up and discover the adventure within. -> worthy_descendant
 
 - How did you even get this picture? It's not really a picture you're fond of. 
-    * [Open the picture frame]
+    * [Open the picture frame] #CLEAR
 Inside the picture you find four slips of paper ->picture_frame
 
 testing the text from blank frame
@@ -54,14 +53,14 @@ testing the text from blank frame
     + { read_water_hint }[Read about the dead explorer] -> read_water_hint
     * [Read Paper 3] -> read_blank_water_page
     + { read_blank_water_page } [Look at blank page] -> read_blank_water_page
-    * [Read Paper 4] ->read_native_pictures
-    + { read_native_pictures } [Look at the pictures of natives]
-        #IMAGE: imgs/riddle.jpg
-    ->read_native_pictures
-    
-    * { read_water_hint } [Soak the blank paper in water]
-        It reveals the text "the second explorer fell to poison"
+    * [Read Paper 4] #CLEAR 
+        ->read_native_pictures
+    + { read_native_pictures } [Look at the pictures of natives] #CLEAR
+        ->read_native_pictures
+    * { read_water_hint and read_blank_water_page} [Soak the blank paper in water] #CLEAR
+        - It reveals the text "the second explorer fell to poison" #IMAGE: imgs/water_clue.png
         * * [Look for the rodent poison you leave atop your shelves.] -> poison
+        
     = champlain_pic_txt
         "Like grandfather Champlain who crossed the Atlantic so many times we all feel the pull of adventure. Is it the treasure that drives you or the mystery of the unknown? Grandpa Champlain clearly had the curiosity to make friends with the natives, live with them and war with them. This search too, has not but been without risk. Some have suffered more than failure."
         ->picture_frame
@@ -73,30 +72,45 @@ testing the text from blank frame
         ->picture_frame
     = read_native_pictures
         It contains a chart that has a picture of 5 native americans. On the reverse side there are five sentences explaining about native americans.
+        #IMAGE: imgs/riddle.png
         ->native_puzzle.clue1
 
 === poison ====
     Next to the poison is a box you've never seen before. 
-    * [ Take and open the box ] ->jigsaw_box
+    * [ Take and open the box ] #CLEAR
+        ->jigsaw_box
 
 ==== jigsaw_box ====    
-    Inside the box is a mass of jigsaw puzzle pieces and 3 pieces of paper and a strange flashlight
-    + [Read paper 1]
-        //TODO
-        Todo Flavor text ->jigsaw_box
-    + [Read paper 2]
-        The text says "A third explorer dove deep into an ocean trench but didn't bring a light to show the way." You remember something about ocean depths and trenches in your new Oceanology book. 
-        ++ [Open your oceanology book] -> oceanology_book_blacklight
-    + [Read paper 3]
-        It is 5 sentences describing native American tribes ->jigsaw_box
+    Inside the box is a mass of jigsaw puzzle pieces and 3 pieces of paper { not flashlight: and a strange flashlight }
+    
+    * [Read paper 1] 
+        ->about_champlain
+    + { about_champlain } [Read about Champlain] ->about_champlain
+    * [Read paper 2] -> dead_explorer_2
+    + { dead_explorer_2 } [Read about the dead explorer ] -> dead_explorer_2
+    * [Read paper 3]
+        It is 5 sentences describing native American tribes.
+        You look back at the box.
+        ->jigsaw_box
     * [Examine the flashlight]
         It's a blacklight. The batteries seem to work.
         * * [Take the flashlight] ->flashlight
-    + [Take a break] 
+    + [Take a break]
+        #CLEAR
         You take a break and think about evenything that's happened ->break
     = flashlight
-        You take the flashlight. ->jigsaw_box
-
+        You take the flashlight. 
+        ->jigsaw_box
+    = about_champlain
+        #CLEAR
+        "Champlain was the first settler of New France. He used his navigational knowledge to draw maps of the area and allied himself with various natives tribes to learn from them and trade with them. "
+        ->jigsaw_box
+    = dead_explorer_2
+        #CLEAR
+        The text says "A third explorer dove deep into an ocean trench but didn't bring a light to show the way." 
+            You remember something about ocean depths and trenches in your new Oceanology book. 
+        ++ [Look back at the box ] ->jigsaw_box
+        ++ [Open your oceanology book] -> oceanology_book_blacklight
 
 === oceanology_book_blacklight ===
 You open the Oceanology book to  the page about the deepest darkest depths. It has information about the cold dark depths of the ocean. Nothing of interest.
@@ -104,6 +118,7 @@ You open the Oceanology book to  the page about the deepest darkest depths. It h
     + { jigsaw_box.flashlight } Shine your blacklight on the page
     it reveals the text "The frozen depths"
     The only thing frozen around here is in your freezer.
+    #IMAGE: imgs/blacklight_clue.png
         * * [Check the freezer for clues] ->freezer
         
 === freezer ===
@@ -159,6 +174,7 @@ It contains a bunch of flag symbols. Looks like flag semaphore.
         + + [Look at the other papers] -> tin2
         * * { read_candle_hint }  [Hold the blank paper towards the candlelight]
         As the paper approaches the flame a message starts to appear "fireplace"
+            #IMAGE: imgs/fire_clue.png
             * * * [Check around the furnace] 
                 After checking around the furnace you notice yet another tin. In the tin you find another piece of pinned paper and a two lose pieces of paper.-> tin3
     + [Take a break] 
