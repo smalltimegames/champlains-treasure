@@ -1,4 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700|Quattrocento:700');
+.narration{
+    font-style: italic;
+}
+.text{
+    text-indent: 20px;
+    padding: 0.5em 0.5em 0.5em 2em;
+    color:#444;
+    background-color: #eee;
+    font-weight: bold;
+    background-image: 
+        radial-gradient(ellipse at top, transparent, #d3b894),
+        radial-gradient(ellipse at bottom, transparent, #ab987f);
+    /* filter:none; */
+}
+/* .text-bg{
+    background-color: #eee;
+    box-shadow: 2px 3px 20px black, 0 0 60px #d3ad87 inset;
+    filter: url(#svg-filter); 
+} */
 
 body {
     font-family: 'Open Sans', sans-serif;

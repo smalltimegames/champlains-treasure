@@ -146,8 +146,18 @@
             storyContainer.appendChild(paragraphElement);
 
             // Add any custom classes derived from ink tags
-            for(var i=0; i<customClasses.length; i++)
+            for(var i=0; i<customClasses.length; i++){
                 paragraphElement.classList.add(customClasses[i]);
+                //custom code to add a background to text:
+                if( customClasses[i] == 'text')
+                {
+                    let oldParent = paragraphElement.parentNode;
+                    let newParent = document.createElement('div');
+                    newParent.classList.add('text-bg')
+                    oldParent.replaceChild(newParent, paragraphElement);
+                    newParent.appendChild(paragraphElement);
+                }
+            }
 
             // Fade in paragraph after a short delay
             showAfter(delay, paragraphElement);
