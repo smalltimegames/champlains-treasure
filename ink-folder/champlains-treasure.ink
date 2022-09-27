@@ -1,16 +1,17 @@
 # title: In Search of Champlain's Treasure
 # theme: dark
 # author: Matt K
-On your shelf, you find a book, Oceanology, that  you haven't seen before.#CLASS: narration
+#IMAGE: imgs/oceanology_book.png
+On your shelf, you find a book, The Oceanology Handbook, that  you haven't seen before.#CLASS: narration
  * [Open the book]
--The book is about the basics of oceanology. I includes old methods of communication at sea, descriptions of ocean life, and studies of currents and depths of the ocean. #CLASS: narration
+-The book is about the basics of oceanology. it includes old methods of communication at sea, descriptions of ocean life, and studies of currents and depths of the ocean. #CLASS: narration
 
  * [Further examine the book]
 -Upon further examining the book, you notice papers tucked in the back. Alongside the papers is an explanation of Morse code.#CLASS: narration
 * [Read the papers]
 #CLEAR
 #CLASS: text
--I have been searching for the last 20 years of my life for the grave and treasure of my great grandfather. His original burial spot burned to the ground and when his remains were moved, all information was lost. I’ve assembled some of his things on my journey but haven’t yet found his resting place, or his treasure. <br>  My father and his father before him… for more than ten generations, we gathered all the information we could on the whereabouts of the treasure. And now I leave it to you - if you wish to continue - prove your knowledge of our family and my greatest Grandfather.<br>   Coincidentally - or perhaps an attempt at clever wordplay -  one of my great grandfathers left his first hint to our family's origin in a message made possible by another Samuel. I’ve passed it on to you via this card.
+-I have been searching for the last 20 years of my life for the grave and treasure of my great great (I've lost track of how many greats) grandfather. His original burial site burned to the ground and when his remains were moved, all information was lost. I’ve assembled some of his things on my journey but haven’t yet found his resting place, or his treasure. <br>  My father and his father before him… for more than ten generations, we gathered all the information we could on the whereabouts of the treasure. And now I leave it to you - if you wish to continue - prove your knowledge of our family and my greatest Grandfather.<br>   Coincidentally - or perhaps an attempt at clever wordplay -  one of my great grandfathers left his first hint to our family's origin in a message made possible by another Samuel. I’ve passed it on to you via this card.
 
 Tucked into the the text is an SD Card.#CLASS: narration
 
@@ -80,18 +81,18 @@ Tucked into the the text is an SD Card.#CLASS: narration
         * * [Look for the rodent poison you leave atop your shelves.] -> poison
         
     = champlain_pic_txt
-        Like grandfather Champlain, who crossed the Atlantic so many times, we all feel the pull of adventure. Is it the treasure that drives you or the mystery of the unknown? Grandpa Champlain clearly had the curiosity to make friends with the natives, live with them, and war with them. This search, too, has not but been without risk. Some have suffered more than failure.#CLASS: text
+        Like grandfather Champlain, who crossed the Atlantic so many times, we all feel the pull of adventure. Is it the treasure that drives you or the mystery of the unknown? Grandpa Champlain clearly had the curiosity to make friends with the natives, live with them, and war with them. The search for his remains, too, has not been without risk. Some have suffered more than failure.#CLASS: text
         ->picture_frame
     = read_water_hint
         You read the text: #CLASS: narration
-        One explorer, was thought by everyone to be close to the treasure; he knew much and was held under until he spilled his secrets, then drowned.#CLASS: text
+        One explorer, was thought by everyone to be close to the treasure; he knew much and was held under water until he spilled his secrets. Drowned for a chance at the knowledge of my grandfather's secrets.#CLASS: text
         ->picture_frame
     = read_blank_water_page
         It's blank #CLASS: narration
         ->picture_frame
     = read_native_pictures
         It contains a chart that has a picture of 5 Native Americans. On the reverse side there are five sentences explaining about Native Americans.#CLASS: narration
-        #IMAGE: imgs/riddle.png
+        #IMAGE: imgs/native_riddle.png
         ->native_puzzle.clue1
 
 === poison ====
@@ -100,22 +101,29 @@ Tucked into the the text is an SD Card.#CLASS: narration
         ->jigsaw_box
 
 ==== jigsaw_box ====
-    //TODO we should add some clears and stuff in here
-    Inside the box are a mass of jigsaw puzzle pieces and 3 pieces of paper. { not flashlight: There is also a strange flashlight }#CLASS: narration
+    TODO we should add some clears and stuff in here
+    Inside the box are a mass of jigsaw puzzle pieces and 3 pieces of paper. On the lid of the box there is a drawing and a QR Code. { not flashlight: There is also a strange flashlight }#CLASS: narration
     
     * [Read paper 1] 
+        TODO this flavor text could use work
         ->about_champlain
     + { about_champlain } [Read about Champlain] -> about_champlain
     * [Read paper 2] -> dead_explorer_2
     + { not freezer }{ dead_explorer_2 } [Read about the dead explorer ] -> dead_explorer_2
     * [Read paper 3]
-        It is 5 sentences describing Native American tribes.
+        TODO this is wrong and doesn't link to a clue
+        It is 5 sentences describing Native American tribes.#CLASS: narration
         You look back at the box.#CLASS: narration
         -> jigsaw_box
     * [Examine the flashlight]
         It's a blacklight. The batteries seem to work.#CLASS: narration
         * * [Take the flashlight] 
         -> flashlight
+    + [Examine the Drawing on the Lid]
+        On the lid of the box you see a drawing of four colored dots and lines between them to make an 'X'#CLASS: narration
+            ++ [Look back at the box] -> jigsaw_box
+    + [Scan the QR code]
+        -> qr_code
     + [Take a break]
         #CLEAR
         You take a break and think about everything that's happened. #CLASS: narration 
@@ -125,10 +133,11 @@ Tucked into the the text is an SD Card.#CLASS: narration
         -> jigsaw_box
     = about_champlain
         #CLEAR
-        Champlain was the first settler of New France. He used his navigational knowledge to draw maps of the area and allied himself with various natives tribes to learn from them and trade with them. #CLASS: text
+        Champlain was the first settler of New France. His navigational knowledge  helped draw some of the first maps of the area, his diplomacy helped him ally with natives tribes, whom he learned from and traded with. #CLASS: text
         -> jigsaw_box
     = dead_explorer_2
         #CLEAR
+        TODO this text could be better
         The text says, #CLASS: narration
         A third explorer dove deep into an ocean trench but didn't bring a light to show the way. #CLASS: text
         You remember something about ocean depths and trenches in your new Oceanology book. #CLASS: narration
@@ -137,7 +146,31 @@ Tucked into the the text is an SD Card.#CLASS: narration
         ++ [Look back at the box ]
             #CLEAR
             ->jigsaw_box
-
+=== qr_code ===
+    #CLEAR
+    #IMAGE: imgs/qr_code_site.png
+    { qr_code:
+        You take your phone out and scan the QR code. It takes you to a website that has the prompt: #CLASS: narration
+        - else:
+        You open the website you scanned from the QR Code. It has a input text box which says: #CLASS: narration
+    }
+    Enter your discovery from the map. #CLASS: text
+        + [Look back at the jigsaw box] -> jigsaw_box
+        * { map_puzzle.complete }[Enter the word "Sigue Noc"]
+            -> directions
+        + { break } [Take a break] -> break
+    
+    = directions
+        From rd meets walkway
+        344 ft E
+        131 ft N
+        500 ft E
+        208 ft N
+        84  ft E
+        Open Door
+        + [Take a break] 
+            -> break
+    
 === oceanology_book_blacklight ===
     #CLEAR
     #IMAGE: imgs/trench_page.png
@@ -151,7 +184,8 @@ Tucked into the the text is an SD Card.#CLASS: narration
         **[Check the freezer for clues] 
             #CLEAR
             ->freezer
-    + Go back to the jigsaw puzzle box ->jigsaw_box    
+    + Go back to the jigsaw puzzle box ->jigsaw_box
+    
 === freezer ===
 You open the freezer and find yourself greeted by a great many frozen things, including ice cream.#CLASS: narration
 + [Eat ice cream] -> freezer
@@ -212,6 +246,7 @@ You open the freezer and find yourself greeted by a great many frozen things, in
         + [Look back at tin contents] 
         #CLEAR
         ->tin1
+        
 === tin2 ===
     The tin contains another pin, and three pieces of paper. One paper is pinned to a piece of cork.#CLASS: narration
     *[Read pinned paper] ->map_puzzle.clue2
@@ -262,7 +297,7 @@ You open the freezer and find yourself greeted by a great many frozen things, in
         #CLEAR
         //TODO missing the second A here
         It reads: #CLASS: narration
-        Champlain was not only a sailing explorer but traversed the land as well.<br>   Algonquin taught him their ways of canoeing and camping.<br>    Natives were key to learning and mastering the area surrounding Quebec.<br>   Vermont was still a part of New France and Champlain was one of the first Europeans to explore it.<br>  Sailing and exploring only were only a small part of Champlain's later life, which was mostly occupied with governing.#CLASS: text
+        Champlain was not only a explorer by sea, he traversed the land as well.<br>   Algonquins taught him their ways of canoeing and camping.<br>    Natives were key to learning and mastering the area surrounding Quebec.<br>   Vermont was still a part of New France and Champlain was one of the first Europeans to explore it.<br> Algonquins weren't the only natives he met in his travels, the Abenaki, Wendat and of course he fought against the Iroquois.<br> Fighting, sailing, and exploring only were only a small part of Champlain's later life, which was mostly occupied with governing.#CLASS: text
         * [Closely examine the line structure of the writing]
             The beginning of each line spells canvas. #CLASS: narration
                 ** [Search amongst your many canvases]
@@ -295,32 +330,26 @@ You open the freezer and find yourself greeted by a great many frozen things, in
 === break === 
     What will you do?
     //TODO have to finish the last clues
-    { map_puzzle.complete and native_puzzle.complete:
-        CONGRATULATIONS YOU HAVE FINISHED THE GAME AS FAR AS IT GOES AT THIS TIME
-        ->END
-    }
-    { native_puzzle.complete:
-        YOU HAVE COMPLETED THE NATIVE PUZZLE, THIS CURRENTLY LEADS NOWHERE AND IS UNFINISHED, YOU CAN STILL COMPLETE THE MAP
-    }
-    { map_puzzle.complete:  
-        YOU HAVE COMPLETED THE MAP PUZZLE, THIS CURRENTLY LEADS NOWHERE AND IS UNFINISHED, YOU CAN STILL COMPLETE THE NATIVE PUZZLE 
-    }
-    
+    + { qr_code.directions }{ html_clue }[Head outside] -> head_outside
     + [ Look at the Native American chart]
         #CLEAR
-        #IMAGE: imgs/riddle.png
+        #IMAGE: imgs/native_riddle.png
         You closely examine the chart, it has pictures of five different Native Americans and a 5 x 5 grid beneath them. #CLASS: narration
         + + [ Look at something else ]
             -> break
-        + + [ Add in all the information about the natives you have collected so far ] 
+        + + { not native_puzzle.complete }[ Add in all the information about the natives you have collected so far ] 
             ->native_puzzle.enter_info
-        + + { native_puzzle.clue1 } { native_puzzle.clue2 } { native_puzzle.clue3 } { native_puzzle.enter_info } [ You could probably enter this information in that html file] 
+        + + { native_puzzle.complete } [You could probably enter this information in that html file] 
             -> break
     + [ Open the html file on your computer ]
         { native_puzzle.complete :
-            * [Enter the information you have on your chart]
+            { html_clue:
+                You read the clue from the HTML file.
+                ->html_clue
+            }
+            * { not html_clue }[Enter the information you have on your chart]
                 You plug in the information from your chart and hit unlock. The file reveals yet another clue. #CLASS: narration
-                -> break
+                -> html_clue
             - else:
                 You don't have enough information to fill this in yet. #CLASS: narration
                 -> break
@@ -332,6 +361,15 @@ You open the freezer and find yourself greeted by a great many frozen things, in
     + { tin2 } [Look at the second tin] ->tin2
     + { tin3 } [Look at the third tin] ->tin3
     + { tin4 } [Look at the fourth tin] ->tin4
+    + { qr_code } { not qr_code.directions } [Look at the website from the QR code]
+        ->qr_code
+    + { qr_code.directions }[Look at the directions from the website]
+        ->qr_code.directions
+    
+    = html_clue
+        Champaign discovered a ritual performed by those who lived on the coast. Although he never partook himself it was said to grant unnatural long life. When you find your bearings, you will find the one from the coast and ask for "the blood of the ancients".  #text
+        +[Look at something else]
+        -> break
     = look_at_map
         { pin_map < 4 :
             #CLEAR
@@ -392,7 +430,7 @@ You open the freezer and find yourself greeted by a great many frozen things, in
         Unfortunately, the sisters all went their separate ways with their separate keys. His first daughter, Faith, ended up at the southernmost tip of Lake Champlain. #CLASS: text
         ->tin2.look_back
     = clue3
-        Hope was Champlain's second daughter. She wanted to be Champlain. In fact she ended up sailing on a ship as well. Albeit much smaller than her father's. She could often be found in the crows nest, scouting new territory, like her father. #CLASS: text
+        Hope was Champlain's second daughter. She wanted to be Champlain. In fact, she ended up sailing on a ship. Albeit, a ship much smaller than her father's. She could often be found in the crows nest, scouting new territory, just like her father. #CLASS: text
         ->tin3.look_back
     = clue4
         Champlain's third daughter, Chastity, was quick to wed. She caught the eye of a local fisherman. They lived together happily, although I hear she quickly tired of eating sea bass.#CLASS: text
@@ -426,8 +464,46 @@ You open the freezer and find yourself greeted by a great many frozen things, in
         ->break
 
         
-=== unfinished ===
-This part remains unfinished
+=== head_outside ===
+TODO This part remains unfinished
+    +[Walk to the Road]
+    +[Head back in the house] -> break
+    - You head down the road. #CLASS: narration
+    +[Walk 344 ft East]
+    +[Head back to the house] -> break
+    - You walk a little while. #CLASS: narration
+    +[Walk 131 ft North]
+    +[Head back to the house] -> break
+    - You walk a little more. #CLASS: narration
+    +[Walk 500 ft East]
+    +[Head back to the house] -> break
+    - You walk a little more. #CLASS: narration
+    +[Walk 208 ft North]
+    +[Head back to the house] -> break
+    - You walk a little more. #CLASS: narration
+    +[Walk 84 ft East]
+    +[Head back to the house] -> break
+    - You walk a until you arrive at a door.#CLASS: narration
+    +[Open the door]
+    +[Head back to the house] -> break
+    - #CLEAR 
+    You swing open the door. Inside a bartender calls a greeting to you.#CLASS: narration
+    +[Greet the bartender]
+    - The bartender greets you back and asks if there's anything special you'd like to drink#CLASS: narration
+    +[Order "the Blood of the Ancients"]
+    -"the Blood of the Ancients." 
+    You feel slightly silly saying something like that to a modern bartender but the bartender smiles knowingly.#CLASS: Narration
+    "Coming right up," she responds. 
+    Soon, she returns with a bright blue cocktail #CLASS: narration
+    
+    The glass has a picture of Samuel Champlain on it, the bartender also presents you with a box. 
+    * [Open the box]
+    -The box contains a letter and a watch.
+    * [Read the letter]
+    - You've found the secret of Champlain, an elixir of life. Nobody knows if drinking it will prolong life but it has some near magical benefits. It was not known at the time, but blood of Limulus polyphemus would help develop a pathway to cleaner food and medicine across the world thus saving millions of lives.
+    
+    This watch is a mere trinket. A gift from me to you. My journey to find Champlain's treasure has ended. Some days I imagine there is still something out there but, for me, my new journey is living a life as full as Samuel Champlain.
+    
 ->END
 
 
