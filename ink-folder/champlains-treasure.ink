@@ -11,7 +11,7 @@ On your shelf, you find a book, The Oceanology Handbook, that  you haven't seen 
 * [Read the papers]
 #CLEAR
 #CLASS: text
--I have been searching for the last 20 years of my life for the grave and treasure of my great great (I've lost track of how many greats) grandfather. His original burial site burned to the ground and when his remains were moved, all information was lost. I’ve assembled some of his things on my journey but haven’t yet found his resting place, or his treasure. <br>  My father and his father before him… for more than ten generations, we gathered all the information we could on the whereabouts of the treasure. And now I leave it to you - if you wish to continue - prove your knowledge of our family and my greatest Grandfather.<br>   Coincidentally - or perhaps an attempt at clever wordplay -  one of my great grandfathers left his first hint to our family's origin in a message made possible by another Samuel. I’ve passed it on to you via this card.
+-I have been searching for the last 20 years of my life for the grave and treasure of my great great (I've lost track of how many greats) grandfather. His original burial site burned to the ground and, when his remains were moved, all information was lost. I’ve assembled some of his things on my journey but haven’t yet found his resting place, or his treasure. <br>  My father and his father before him… for more than ten generations, we gathered all the information we could on the whereabouts of the treasure. And now I leave it to you - if you wish to continue - prove your knowledge of our family and my greatest Grandfather.<br>   Coincidentally - or perhaps an attempt at clever wordplay -  one of my great grandfathers left his first hint to our family's origin in a message made possible by another Samuel. I’ve passed it on to you via this card.
 
 Tucked into the the text is an SD Card.#CLASS: narration
 
@@ -79,7 +79,8 @@ Tucked into the the text is an SD Card.#CLASS: narration
         It reveals the text #CLASS: narration
             the second explorer fell to poison #CLASS: text 
         * * [Look for the rodent poison you leave atop your shelves.] -> poison
-        
+    +{ jigsaw_box }[Take a break]
+        ->break
     = champlain_pic_txt
         Like grandfather Champlain, who crossed the Atlantic so many times, we all feel the pull of adventure. Is it the treasure that drives you or the mystery of the unknown? Grandpa Champlain clearly had the curiosity to make friends with the natives, live with them, and war with them. The search for his remains, too, has not been without risk. Some have suffered more than failure.#CLASS: text
         ->picture_frame
@@ -111,10 +112,10 @@ Tucked into the the text is an SD Card.#CLASS: narration
     * [Read paper 2] -> dead_explorer_2
     + { not freezer }{ dead_explorer_2 } [Read about the dead explorer ] -> dead_explorer_2
     * [Read paper 3]
-        TODO this is wrong and doesn't link to a clue
+        TODO this is wrong.
         It is 5 sentences describing Native American tribes.#CLASS: narration
         You look back at the box.#CLASS: narration
-        -> jigsaw_box
+        -> native_puzzle.clue2
     * [Examine the flashlight]
         It's a blacklight. The batteries seem to work.#CLASS: narration
         * * [Take the flashlight] 
@@ -138,7 +139,7 @@ Tucked into the the text is an SD Card.#CLASS: narration
     = dead_explorer_2
         #CLEAR
         TODO this text could be better
-        The text says, #CLASS: narration
+        The text says: #CLASS: narration
         A third explorer dove deep into an ocean trench but didn't bring a light to show the way. #CLASS: text
         You remember something about ocean depths and trenches in your new Oceanology book. #CLASS: narration
         ++ [Open your oceanology book] 
@@ -210,11 +211,10 @@ You open the freezer and find yourself greeted by a great many frozen things, in
     + { map_puzzle.clue1 } [Read about Champlain's key (tacked paper)]
         -> map_puzzle.clue1
     //TODO maybe make this change text after first time
-    + [Read paper 2]
-        #CLEAR
-        It reads:#CLASS: narration
-        Champlain's bravery extended further than exploring and mapping the frozen north of New France. He fought alongside the Wendat against the Iroquois. However brave he is, a man who has been to war never again sleeps quite as soundly or relaxes quite as freely as he once did. Champlain kept his weapon nearby at all times, including when he slept. #CLASS: text
-        ->look_back
+    * [Read paper 2]
+        ->read_champlain
+    + { read_champlain }[Read about Champlain]
+        ->read_champlain
     * [Read paper 3]
         -> semaphore
     + { not tin2 }{ semaphore } [Look at semaphore]
@@ -246,6 +246,11 @@ You open the freezer and find yourself greeted by a great many frozen things, in
         + [Look back at tin contents] 
         #CLEAR
         ->tin1
+    =read_champlain
+        #CLEAR
+        It reads:#CLASS: narration
+        Champlain's bravery extended further than exploring and mapping the frozen north of New France. He fought alongside the Wendat against the Iroquois. However brave he is, a man who has been to war never again sleeps quite as soundly or relaxes quite as freely as he once did. Champlain kept his weapon nearby at all times, including when he slept. #CLASS: text
+        ->look_back
         
 === tin2 ===
     The tin contains another pin, and three pieces of paper. One paper is pinned to a piece of cork.#CLASS: narration
@@ -265,8 +270,7 @@ You open the freezer and find yourself greeted by a great many frozen things, in
         -> look_back
     =blank_paper
     It's blank 
-        + + [Look back at the tin] -> tin2
-        * * { read_candle_hint }  [Hold the blank paper towards the candlelight]
+         * * { read_candle_hint }  [Hold the blank paper towards the candlelight]
         #CLEAR
         As the paper approaches the flame a message starts to appear  #CLASS: narration
             fireplace #CLASS: text
@@ -274,6 +278,8 @@ You open the freezer and find yourself greeted by a great many frozen things, in
             * * * [Check around the furnace] 
                 After checking around the furnace you notice yet another tin. In the tin you find another piece of pinned paper and two loose pieces of paper.#CLASS: narration
                 -> tin3
+        + + [Look back at the tin] -> tin2
+       
     =look_back
         + [Look back at the tin]
         #CLEAR
@@ -286,7 +292,7 @@ You open the freezer and find yourself greeted by a great many frozen things, in
     + { map_puzzle.clue3 } [Read about Hope's key] -> map_puzzle.clue3
     * [Examine loose paper 1] 
         It has 5 more pieces of information about Native Americans #CLASS: narration
-        -> native_puzzle.clue2
+        -> native_puzzle.clue3
     * [Examine loose paper 2] -> canvas_clue
     + { canvas_clue } [Read about Champlain] ->canvas_clue
     + [Take a break] 
@@ -297,7 +303,7 @@ You open the freezer and find yourself greeted by a great many frozen things, in
         #CLEAR
         //TODO missing the second A here
         It reads: #CLASS: narration
-        Champlain was not only a explorer by sea, he traversed the land as well.<br>   Algonquins taught him their ways of canoeing and camping.<br>    Natives were key to learning and mastering the area surrounding Quebec.<br>   Vermont was still a part of New France and Champlain was one of the first Europeans to explore it.<br> Algonquins weren't the only natives he met in his travels, the Abenaki, Wendat and of course he fought against the Iroquois.<br> Fighting, sailing, and exploring only were only a small part of Champlain's later life, which was mostly occupied with governing.#CLASS: text
+        Champlain was not only a explorer by sea, he traversed the land as well.<br>   Algonquins taught him their ways of canoeing and camping.<br>    Natives were key to learning and mastering the area surrounding Quebec.<br>   Vermont was still a part of New France and Champlain was one of the first Europeans to explore it.<br> Algonquins weren't the only natives he met in his travels, the Abenaki, Wendat and of course he fought against the Iroquois.<br> Sailing, warring and exploring only were only a small part of Champlain's later life, which was mostly occupied with governing.#CLASS: text
         * [Closely examine the line structure of the writing]
             The beginning of each line spells canvas. #CLASS: narration
                 ** [Search amongst your many canvases]
@@ -314,21 +320,68 @@ You open the freezer and find yourself greeted by a great many frozen things, in
             -> tin3
 
 === tin4 ===
-    Similar to the other tins, you find a pinned paper, and one loose paper. #CLASS: narration
+    Similar to the other tins, you find a pinned paper, and two loose papers. #CLASS: narration
     * [Read the pinned paper] -> map_puzzle.clue4
     + { map_puzzle.clue4 } [Read about Chastity's key] -> map_puzzle.clue4
-    * [Examine the loose paper]   
-        It has 5 more pieces of information about Native Americans. #CLASS: narration 
-        -> native_puzzle.clue3
+    * [Read loose paper 1]
+        ->perlite_paper
+    + { perlite_paper }[Read about the treasures of the new world]
+        ->perlite_paper
+    * [Read loose paper 2]
+        ->coded_letter
+    + { coded_letter }{ not decoded_letter } [Look at the coded letter]
+        ->coded_letter
+    + { decoded_letter } [Read the decoded letter]
+        ->decoded_letter
     + [Take a break] 
         You take a break and think about everything that's happened. #CLASS: narration
         -> break
+
     =look_back
         + [Look back at the tin] #CLEAR
         ->tin4
-    
+    =perlite_paper
+        Champlain knew the true treasure of the new world was its bounty. Furs and fish being the most plentiful. Traditional treasures such as gold, silver and perls were not as prominent. #CLASS: text
+        +[Perls? Check your bag of perlite]
+            ->cipher
+        +[Ignore the mispelling and look back at the tin]
+            #CLEAR
+            -> tin4
+    =cipher
+        #CLEAR
+        TODO add cipher image
+        You go outside and look inside the bag of perlite. You find a disk that looks like it's used to make ciphers. #narration
+        * [Take the disk and go back to the tin]
+            #CLEAR
+            ->tin4
+    =coded_letter
+        #CLASS: text
+        I found this letter from Champlain but I have not yet been able to decipher it:<br>W kfwhs hvwg zshhsf hc ps pfciuvh hc Eispsq wb hvs sjsbh ct am rsohv. W oa gdsbrwbu kwbhsf kwhv hvs Ksbroh othsf fsacjwbu Wfceicwg offckg tfca am zsu. Bck, am zsu wg zwys uszohwb; obr msh, W vcds hc fshifb wb hvs gdfwbu.<br>       -Goaisz Rs Qvoadzowb
+        + { cipher } [Use the cipher]
+            ->decoded_letter
+        +[Look back at the tin]
+            #CLEAR
+            ->tin4
+    =decoded_letter
+        #CLEAR
+        #CLASS: text
+        I write this letter to be brought to Quebec in the event of my death. I am spending winter with the Wendat after removing Iroquois arrows from my leg. Now, my leg is like gelatin; and yet, I hope to return in the spring.<br>     -Samuel De Champlain
+        +{ not jello }[Gelatin, huh? Time to break out the Jello]
+            ->jello
+        +[Look back at the tin]
+            #CLEAR
+            ->tin4
+    =jello
+        You look in a paper bag filled with JELLO (not actual gelatin, but the boxes used to prepare it). You find a compass. It might come in handy. #CLASS: narration
+        +[Take the compass]
+            -> compass
+        
+=== compass ===
+    It's a pretty cool looking old compass. You stick it in your pocket. #CLASS: narration
+    ->tin4.look_back
+
 === break === 
-    What will you do?
+    What will you do? #CLASS: narration
     //TODO have to finish the last clues
     + { qr_code.directions }{ html_clue }[Head outside] -> head_outside
     + [ Look at the Native American chart]
@@ -356,18 +409,19 @@ You open the freezer and find yourself greeted by a great many frozen things, in
         }
     + { jigsaw_box } { not build_jigsaw.complete} [Work on the jigsaw puzzle ] -> build_jigsaw
     + { build_jigsaw.complete } [Look at the map] ->look_at_map
+    + { qr_code } { not qr_code.directions } [Look at the website from the QR code]
+        ->qr_code
+    + [Look at the picture frame] -> picture_frame
     + { jigsaw_box } [ Look at the jigsaw box ] -> jigsaw_box
     + { tin1 } [Look at the first tin] ->tin1
     + { tin2 } [Look at the second tin] ->tin2
     + { tin3 } [Look at the third tin] ->tin3
     + { tin4 } [Look at the fourth tin] ->tin4
-    + { qr_code } { not qr_code.directions } [Look at the website from the QR code]
-        ->qr_code
     + { qr_code.directions }[Look at the directions from the website]
         ->qr_code.directions
     
     = html_clue
-        Champaign discovered a ritual performed by those who lived on the coast. Although he never partook himself it was said to grant unnatural long life. When you find your bearings, you will find the one from the coast and ask for "the blood of the ancients".  #text
+        Champaign discovered a ritual performed by those who lived on the coast. Although he never partook himself it was said to grant unnatural long life. When you find your bearings, you will find the one from the coast and ask for "the blood of the ancients".  #CLASS: text
         +[Look at something else]
         -> break
     = look_at_map
@@ -384,31 +438,31 @@ You open the freezer and find yourself greeted by a great many frozen things, in
         { map_puzzle.complete:
             #CLEAR
             #IMAGE: imgs/x_map.png
-            The map is complete and points to a "Sigue Noc", a horseshoe crab. #CLASS: narration
+            The map is complete and an X points to a "Sigue Noc", a horseshoe crab. #CLASS: narration
             #IMAGE: imgs/sigue_noc.png
         }
         * * { pin_map > 3 } [Connect the pins to make an X]
             ->map_puzzle.complete
-        * * { map_puzzle.clue1 } [Add one pin to the tip of the arrow of the native]
+        * * { map_puzzle.clue1 } [Add one pin to the tip of the arrow of the native (Champlain)]
             ->pin_map.pin1
-        * * { map_puzzle.clue2 } [Pin the southernmost tip of lake Champlain]
+        * * { map_puzzle.clue2 } [Pin the southernmost tip of lake Champlain (Faith)]
             ->pin_map.pin2
-        * * { map_puzzle.clue3 } [Pin the crow's nest of the small ship]
+        * * { map_puzzle.clue3 } [Pin the crow's nest of the small ship (Hope)]
             ->pin_map.pin3
-        * * { map_puzzle.clue4 } [Pin the eye of the sea bass]
+        * * { map_puzzle.clue4 } [Pin the eye of the sea bass (Chastity)]
             ->pin_map.pin4
         + + [Look at something else] 
         -> break
-->DONE
+
 
 === native_puzzle ===
    
     = clue1
         -> picture_frame
     = clue2
-        ->tin3
+        -> jigsaw_box
     = clue3
-        ->tin4
+        -> tin3
      = enter_info
         { native_puzzle.clue1 and native_puzzle.clue2 and native_puzzle.clue3:
                You have filled out the entirety of the chart. #CLASS: narration
@@ -423,7 +477,7 @@ You open the freezer and find yourself greeted by a great many frozen things, in
 === map_puzzle ===
     = clue1
         #CLEAR
-        Although, he wasn't an explorer for the sake of treasure, his extensive travels did amass him a slight fortune. And so, Champlain left keys to his treasure to each of his daughters and kept the last for himself. If he passed, he wanted the sisters to find his treasure together. Champlain kept his key alongside other knick knacks. He had been shot in the knee once by the arrow of a savage. He kept the point of the arrow as a sort of memento right next to his key. #CLASS: text
+        Although, he wasn't an explorer for the sake of treasure, his extensive travels did amass him a slight fortune. And so, Champlain left keys to his treasure to each of his daughters and kept the last for himself. If he passed, he wanted the sisters to find his treasure together. Champlain kept his key alongside other knick knacks. He had been shot in the knee once by the arrow of a savage. He kept the point of the arrow as a sort of memento, right next to his key. #CLASS: text
         -> tin1.look_back
     = clue2
         It reads: #CLASS: narration
@@ -436,11 +490,8 @@ You open the freezer and find yourself greeted by a great many frozen things, in
         Champlain's third daughter, Chastity, was quick to wed. She caught the eye of a local fisherman. They lived together happily, although I hear she quickly tired of eating sea bass.#CLASS: text
         ->tin4.look_back
     = complete
-        You draw lines to connect the pins. 
-            An X forms and marks the "Sigue Noc" - a horseshoe crab #CLASS: narration
-        [Look at something else]
-            #CLEAR
-            -> break
+        You draw lines to connect the pins. #CLASS: narration
+        ->break.look_at_map
 
 === pin_map ===
     = pin1
@@ -466,6 +517,10 @@ You open the freezer and find yourself greeted by a great many frozen things, in
         
 === head_outside ===
 TODO This part remains unfinished
+    { not compass:
+        You have no idea what direction to head, if only there was some way to know North from South. You head back into the house.
+            -> break
+    }
     +[Walk to the Road]
     +[Head back in the house] -> break
     - You head down the road. #CLASS: narration
@@ -492,18 +547,18 @@ TODO This part remains unfinished
     - The bartender greets you back and asks if there's anything special you'd like to drink#CLASS: narration
     +[Order "the Blood of the Ancients"]
     -"the Blood of the Ancients." 
-    You feel slightly silly saying something like that to a modern bartender but the bartender smiles knowingly.#CLASS: Narration
+    You feel slightly silly saying something like that to a modern bartender but the bartender smiles knowingly.#CLASS: narration
     "Coming right up," she responds. 
     Soon, she returns with a bright blue cocktail #CLASS: narration
     
-    The glass has a picture of Samuel Champlain on it, the bartender also presents you with a box. 
+    The glass has a picture of Samuel Champlain on it, the bartender also presents you with a box. #CLASS: narration
     * [Open the box]
     -The box contains a letter and a watch.
     * [Read the letter]
-    - You've found the secret of Champlain, an elixir of life. Nobody knows if drinking it will prolong life but it has some near magical benefits. It was not known at the time, but blood of Limulus polyphemus would help develop a pathway to cleaner food and medicine across the world thus saving millions of lives.
+    - #CLASS: text
+        You've found the secret of Champlain, an elixir of life. Nobody knows if drinking it will prolong life but it has some near magical benefits. It was not known at the time, but blood of Limulus polyphemus would help develop a pathway to cleaner food and medicine across the world thus saving millions of lives.<br>This watch is a mere trinket. A gift from me to you. My journey to find Champlain's treasure has ended. Some days I imagine there is still something out there but, for me, my new journey is living a life as full as my great grandather, Samuel Champlain.
     
-    This watch is a mere trinket. A gift from me to you. My journey to find Champlain's treasure has ended. Some days I imagine there is still something out there but, for me, my new journey is living a life as full as Samuel Champlain.
-    
+    The End #CLASS: narration
 ->END
 
 
